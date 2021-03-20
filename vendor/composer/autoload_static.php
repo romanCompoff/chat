@@ -16,6 +16,10 @@ class ComposerStaticInit04dc3f9101b3ad0122fbb037cf34e38d
             'Pusher\\' => 7,
             'Psr\\Log\\' => 8,
         ),
+        'D' => 
+        array (
+            'Dva\\Chat\\' => 9,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -27,6 +31,16 @@ class ComposerStaticInit04dc3f9101b3ad0122fbb037cf34e38d
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Dva\\Chat\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Chat/app',
+        ),
+    );
+
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dva\\Chat\\Controllers\\InstalController' => __DIR__ . '/../..' . '/Chat/app/Controllers/InstalController.php',
+        'Dva\\Hotels\\Core\\DB' => __DIR__ . '/../..' . '/Chat/app/Core/DB.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -34,6 +48,7 @@ class ComposerStaticInit04dc3f9101b3ad0122fbb037cf34e38d
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit04dc3f9101b3ad0122fbb037cf34e38d::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit04dc3f9101b3ad0122fbb037cf34e38d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit04dc3f9101b3ad0122fbb037cf34e38d::$classMap;
 
         }, null, ClassLoader::class);
     }

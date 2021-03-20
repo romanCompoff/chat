@@ -1,5 +1,5 @@
 <?
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 $app_id = "798784";
 $key = "5bb5b14a93403d2d92c3";
 $secret = "69bae25d1045cb88259b";

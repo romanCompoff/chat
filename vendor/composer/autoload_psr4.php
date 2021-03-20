@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Pusher\\' => array($vendorDir . '/pusher/pusher-php-server/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Dva\\Chat\\' => array($baseDir . '/Chat/app'),
 );

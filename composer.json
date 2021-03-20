@@ -1,5 +1,15 @@
 {
+    "name": "dva/chat",
+    "description": "Chat for sites",
     "require": {
         "pusher/pusher-php-server": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dva\\Chat\\": "Chat/app"
+        },
+		"classmap": [
+    "Chat/app/"
+		]
     }
 }

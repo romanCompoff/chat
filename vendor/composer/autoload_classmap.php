@@ -6,4 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Dva\\Chat\\Controllers\\InstalController' => $baseDir . '/Chat/app/Controllers/InstalController.php',
+    'Dva\\Hotels\\Core\\DB' => $baseDir . '/Chat/app/Core/DB.php',
 );

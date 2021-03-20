@@ -23,7 +23,7 @@ channel.bind('my-event', function (data) {
 function senderJS(message) {
    let params = "message=" + message;
    let request = new asyncRequest()
-   request.open("POST", "/api/sender.php", true);
+   request.open("POST", "/chat/api/sender.php", true);
    request.setRequestHeader("Content-type",
       "application/x-www-form-urlencoded")
 
