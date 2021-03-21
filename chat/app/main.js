@@ -1,57 +1,12 @@
-const app_id = "798784",
-   APP_KEY = "5bb5b14a93403d2d92c3",
-   secret = "69bae25d1045cb88259b",
-   APP_CLUSTER = "eu",
-   tableChat = document.querySelector("#tableChat"),
-   chatForm = tableChat.querySelector("#sendMessageForm");
-   document.querySelector("#hideChat").addEventListener("click", (event)=>{
-      event.preventDefault();
-      tableChat.classList.toggle("hide");
-   })
-
-var pusher = new Pusher(APP_KEY, {
-   cluster: APP_CLUSTER
-});
-var channel = pusher.subscribe('my-channel');
-channel.bind('my-event', function (data) {
-   tableChat.querySelector("#divChat").innerHTML += `<p class = "cl">${data.message}</p>`;
-});
-
-
-
-
-function senderJS(message) {
-   let params = "message=" + message;
-   let request = new asyncRequest()
-   request.open("POST", "/chat/api/sender.php", true);
-   request.setRequestHeader("Content-type",
-      "application/x-www-form-urlencoded")
-
-   // request.onreadystatechange = function()
-   // {
-
-   //   if (this.readyState == 4)
-   //   {
-   //     if (this.status == 200)
-   //     {
-
-   //       if (this.responseText != null)
-   //       {
-   // document.getElementById('modalWindow').innerHTML =
-   //           alert(this.responseText);
-   //       }
-   //       else alert("Письмо не отправлено: нет ответа")
-   //     }
-   //     else
-   // {
-   //   alert( "Письмо не отправлено: " + this.statusText);
-   // } 			  
-   //   }
-   // }
-
-   request.send(params)
-}
-
+const tableChat = document.querySelector("#tableChat"),
+      app_id = tableChat.dataset.id,
+      APP_KEY = tableChat.dataset.key,
+      secret = tableChat.dataset.secret,
+      APP_CLUSTER = tableChat.dataset.cluster,
+      chatForm = tableChat.querySelector("#sendMessageForm");
+var channels;
+var pusher;
+var channel;
 
 function asyncRequest() {
    try {
@@ -70,9 +25,7 @@ function asyncRequest() {
    return request
 }
 
-chatForm.addEventListener("submit", (event)=>{
-   event.preventDefault();
-   let message = chatForm.querySelector("[type = text]").value;
-   senderJS(message);
-   chatForm.querySelector("[type = text]").value = "";
-})
+function checkData(data, classes){
+   if (data && data.trim()){tableChat.querySelector("#divChat").innerHTML += `<p class = "${classes}">${data}</p>`;}
+   return true;
+}

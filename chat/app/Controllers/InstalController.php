@@ -9,7 +9,14 @@ class InstalController
    {
       $model = new InstalModel(DB::getConnect());
       $model = $model->startInstal();
-      var_dump($model);
       return $model;
+   }
+
+   public function addChannels(array $channel)
+   {
+      $model = new InstalModel(DB::getConnect());
+      foreach ($channel as $value) {
+         $model->addChannels($value);
+      }
    }
 }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,34 +7,11 @@
 
 	</head>
 	<body>
-		<table id = "tableChat">
-			<tbody>
-				<tr>
-					<td>
-						<div id = "divChat" class = "divChat">
-			<?=$content?>
-
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td id = "indicator">
-					</td>
-				</tr>
-				<tr class = "input">
-					<td class = "input">
-						<form id="sendMessageForm"> 
-							<input class = "text" type="text"  name = "message" id = "message" >
-							<input type="submit"  value="Отправить (ENTER)">
-						</form>
-					</td>
-				</tr>
-			<tbody>
-		</table>
-		<input type="submit"  value="Спрятать/показать" id = "hideChat">
+		<? include_once __DIR__ . "/chat/chat.php";?>
 	</body>
 </html>
 
 
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script src="chat/app/main.js"></script>
+<script src="chat/app/user.js"></script>
