@@ -16,7 +16,7 @@ class InstalModel
          app_key VARCHAR(20) NOT NULL,
          app_secretr VARCHAR(20) NOT NULL,
          cluster VARCHAR(2) NOT NULL,
-         is_free BOOLEAN NOT NULL DEFAULT false,
+         is_free BOOLEAN NOT NULL DEFAULT true,
          up_time INT NULL
         )";
         $this->db->exec($sql);

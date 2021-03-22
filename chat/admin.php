@@ -39,3 +39,4 @@ require __DIR__ . '/../vendor/autoload.php';
 
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script src="/chat/app/main.js"></script>
+<script src="/chat/app/admin.js"></script>

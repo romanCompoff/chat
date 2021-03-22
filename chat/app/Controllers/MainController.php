@@ -15,6 +15,6 @@ class mainController
     public function upTime($id)
     {
         $model = new MainModel(DB::getConnect());
-        $model->upTime($id);
+        return $model->upTime($id);
     }
 }

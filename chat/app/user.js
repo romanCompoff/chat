@@ -1,3 +1,4 @@
+let tryCount = 0;
 function getChannels() {
     let request = new asyncRequest()
     request.open("POST", "/chat/api/getConnectToChannel.php", false);
@@ -66,11 +67,17 @@ function sendMessage(event = null) {
     if (channels == undefined) {
        console.log(channels);
        getChannels();
-       setTimeout(sendMessage, 350);
+       if(tryCount<10){
+        setTimeout(sendMessage, 400);
+        tryCount++;
+       }else{
+        checkData("Нет свободных каналов связи", "err");
+       }
        console.log("sendMessage");
     } else {
        senderJS(message);
        chatForm.querySelector("[type = text]").value = "";
+       tryCount = 0;
     }
  }
  document.querySelector("#hideChat").addEventListener("click", (event) => {

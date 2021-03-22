@@ -3,14 +3,6 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 $message = $_POST['message'];
 
-if (!isset($_COOKIE['userChat'])) {
-    $message = "Для использования чата необходимо включить куки.";
-} else {
-    $coockieValue = $_COOKIE['userChat'] .= "|u|"  . $message;
-    setcookie("userChat", $coockieValue, 0, "/", $_SERVER['SERVER_NAME']);
-}
-
-
 $channel = json_decode($_POST["channels"]);
 $app_id = $channel->app_id;
 $key = $channel->app_key;
