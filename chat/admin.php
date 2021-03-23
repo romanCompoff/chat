@@ -12,7 +12,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 	</head>
 	<body>
-	<table data-id="<?=$channel["app_id"]?>" data-key="<?=$channel["app_key"]?>" data-secret="<?=$channel["app_secret"]?>" data-cluster="<?=$channel["cluster"]?>" id = "tableChat">
+		<div id="previewChats"></div>
+		<div id="dialog"></div>
+	<!-- <table data-id="<?=$channel["app_id"]?>" data-key="<?=$channel["app_key"]?>" data-secret="<?=$channel["app_secret"]?>" data-cluster="<?=$channel["cluster"]?>" id = "tableChat">
 		<tbody>
 			<tr>
 				<td>
@@ -32,7 +34,7 @@ require __DIR__ . '/../vendor/autoload.php';
 			</tr>
 		<tbody>
 	</table>
-	<input type="submit"  value="Спрятать/показать" id = "hideChat">
+	<input type="submit"  value="Спрятать/показать" id = "hideChat"> -->
     </body>
 </html>
 

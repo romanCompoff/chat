@@ -1,3 +1,5 @@
+const tableChat = document.querySelector("#tableChat");
+const chatForm = tableChat.querySelector("#sendMessageForm");
 let tryCount = 0;
 function getChannels() {
     let request = new asyncRequest()

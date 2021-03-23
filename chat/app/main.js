@@ -1,9 +1,9 @@
-const tableChat = document.querySelector("#tableChat"),
-      app_id = tableChat.dataset.id,
-      APP_KEY = tableChat.dataset.key,
-      secret = tableChat.dataset.secret,
-      APP_CLUSTER = tableChat.dataset.cluster,
-      chatForm = tableChat.querySelector("#sendMessageForm");
+
+      // app_id = tableChat.dataset.id,
+      // APP_KEY = tableChat.dataset.key,
+      // secret = tableChat.dataset.secret,
+      // APP_CLUSTER = tableChat.dataset.cluster,
+      
 var channels;
 var pusher;
 var channel;
