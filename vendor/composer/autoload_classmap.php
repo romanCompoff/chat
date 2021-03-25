@@ -6,7 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Dva\\Chat\\Controllers\\AdminController' => $baseDir . '/Chat/app/Controllers/AdminController.php',
     'Dva\\Chat\\Controllers\\InstalController' => $baseDir . '/Chat/app/Controllers/InstalController.php',
-    'Dva\\Hotels\\Core\\DB' => $baseDir . '/Chat/app/Core/DB.php',
+    'Dva\\Chat\\Controllers\\mainController' => $baseDir . '/Chat/app/Controllers/MainController.php',
+    'Dva\\Chat\\Core\\DB' => $baseDir . '/Chat/app/Core/DB.php',
+    'Dva\\Chat\\Models\\AdminModel' => $baseDir . '/Chat/app/Models/AdminModel.php',
+    'Dva\\Chat\\Models\\InstalModel' => $baseDir . '/Chat/app/Models/InstalModel.php',
+    'Dva\\Chat\\Models\\mainModel' => $baseDir . '/Chat/app/Models/MainModel.php',
 );

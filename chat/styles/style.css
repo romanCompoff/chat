@@ -141,15 +141,55 @@ width: 4px;
 }
 
 .chatNotice{
-	width:45px;
+	padding:7px;
+	width:245px;
 	height:33px;
-	background:green;
+	background:rgb(229, 255, 229);
 	margin:7px;
-	border: solid yellow 1px;
+	border: solid rgb(15, 15, 6) 1px;
+	display: inline-block;
+	transition-duration: 0.5s;
+}
+
+.chatNotice:hover{
+	margin-top: 5px;
+	display: inline-block;
+	box-shadow: -12px 1px 27px -8px rgba(0,0,0,0.51);
+	-webkit-box-shadow: -12px 1px 27px -8px rgba(0,0,0,0.51);
+	-moz-box-shadow: -12px 1px 27px -8px rgba(0,0,0,0.51);
 }
 
 .userDialog{
 	width:100%;
-	height: 300px;
+	height: 400px;
 	background-color:wheat;
+	overflow-x: auto;
 }
+#dialog{
+	text-align: center;
+}
+#dialog input {
+    width: 90%;
+}
+
+@keyframes glowing {
+	0% { background-color: #d8cab9; box-shadow: 0 0 2px #f3dbdb; }
+	50% { background-color: #d88c29; box-shadow: 0 0 9px #DEB887; }
+	100% { background-color: #DEB887; box-shadow: 0 0 2px #794b10; }
+  }
+  
+  #hideChat {
+	animation: glowing 1500ms infinite;
+  }
+  
+  #dialogForm{
+	  margin:0 auto;
+	  width:90%;
+	  border: 3px solid green;
+  }
+
+  #dialogForm input{
+	  width:100%;
+	  height:50px;
+	  box-sizing: border-box;
+  }

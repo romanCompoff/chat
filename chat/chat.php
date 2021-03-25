@@ -3,7 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 ?>
-	<table data-id="<?=$channel["app_id"]?>" data-key="<?=$channel["app_key"]?>" data-secret="<?=$channel["app_secret"]?>" data-cluster="<?=$channel["cluster"]?>" id = "tableChat">
+	<table class = "hide" id = "tableChat">
 		<tbody>
 			<tr>
 				<td>

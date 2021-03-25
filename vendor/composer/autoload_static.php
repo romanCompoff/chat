@@ -38,9 +38,13 @@ class ComposerStaticInit04dc3f9101b3ad0122fbb037cf34e38d
     );
 
     public static $classMap = array (
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dva\\Chat\\Controllers\\AdminController' => __DIR__ . '/../..' . '/Chat/app/Controllers/AdminController.php',
         'Dva\\Chat\\Controllers\\InstalController' => __DIR__ . '/../..' . '/Chat/app/Controllers/InstalController.php',
-        'Dva\\Hotels\\Core\\DB' => __DIR__ . '/../..' . '/Chat/app/Core/DB.php',
+        'Dva\\Chat\\Controllers\\mainController' => __DIR__ . '/../..' . '/Chat/app/Controllers/MainController.php',
+        'Dva\\Chat\\Core\\DB' => __DIR__ . '/../..' . '/Chat/app/Core/DB.php',
+        'Dva\\Chat\\Models\\AdminModel' => __DIR__ . '/../..' . '/Chat/app/Models/AdminModel.php',
+        'Dva\\Chat\\Models\\InstalModel' => __DIR__ . '/../..' . '/Chat/app/Models/InstalModel.php',
+        'Dva\\Chat\\Models\\mainModel' => __DIR__ . '/../..' . '/Chat/app/Models/MainModel.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -1,5 +1,6 @@
-const tableChat = document.querySelector("#tableChat");
-const chatForm = tableChat.querySelector("#sendMessageForm");
+const tableChat = document.querySelector("#tableChat"),
+    chatForm = tableChat.querySelector("#sendMessageForm"),
+    divChat=document.querySelector("#divChat");
 let tryCount = 0;
 function getChannels() {
     let request = new asyncRequest()
@@ -19,10 +20,11 @@ function getChannels() {
                     channel = pusher.subscribe('my-channel');
                     channel.bind('my-event', function (data) {
                         checkData(data.message, "cl");
-                        checkData(data.admin, "adm");
+                        checkData(data.admin, "adm", true);
                         checkData(data.err, "err");
+                        console.log(data);
                     });
-
+                    let timerId3 = setTimeout(()=>channels = undefined, 20000);
                 } else {
                     tableChat.querySelector("#divChat").innerHTML += `<p class = "ad">Нет ответа, или все линии заняты1</p>`;
                     console.log("2");
@@ -79,6 +81,8 @@ function sendMessage(event = null) {
     } else {
        senderJS(message);
        chatForm.querySelector("[type = text]").value = "";
+       clearTimeout(timerId1);
+       clearTimeout(timerId2);
        tryCount = 0;
     }
  }
@@ -86,3 +90,7 @@ function sendMessage(event = null) {
     event.preventDefault();
     tableChat.classList.toggle("hide");
  });
+
+ let timerId1 = setTimeout(checkData, 5000, "Здравствуйте", "adm", true);
+ let timerId2 = setTimeout(checkData, 7000, "Могу чем-то вам помочь?", "adm", true);
+ 

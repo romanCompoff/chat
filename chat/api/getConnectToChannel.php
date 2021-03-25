@@ -12,6 +12,8 @@ if ($channel) {
         $coockieValue = $_COOKIE['userChat'] .= "|=|" . time();
         setcookie("userChat", $coockieValue, 0, "/", $_SERVER['SERVER_NAME']);
     }
+    $c = explode("|=|", $_COOKIE["userChat"]);
+    $channel['coockieData'] = $c[0];
     $controller->upTime($channel["id"]);
     echo json_encode($channel);
 }

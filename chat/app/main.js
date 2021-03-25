@@ -25,7 +25,23 @@ function asyncRequest() {
    return request
 }
 
-function checkData(data, classes){
-   if (data && data.trim()){tableChat.querySelector("#divChat").innerHTML += `<p class = "${classes}">${data}</p>`;}
-   return true;
+function checkData(data, classes, notice=false){
+   if (data && data.trim()){
+      tableChat.querySelector("#divChat").innerHTML += `<p class = "${classes}">${data}</p>`;
+      divChat.scrollTop = divChat.scrollHeight;
+      if(notice){clickAudio()}
+      document.querySelector("#tableChat").classList.remove("hide");
+      return true;
+   }
+   return false;
+   
+}
+
+function clickAudio(){
+   var audio = new Audio();
+   audio.pause();
+   audio.currentTime = 0;
+   audio.src = '/audio/click.mp3';
+   audio.play();
+    
 }
