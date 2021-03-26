@@ -1,195 +1,259 @@
-* {margin: 0; padding: 0;}
-.invisible{
-	display:none;
+* {
+	margin: 0;
+	padding: 0;
+}
+
+table#tableChat tr:hover {
+	background: none;
+}
+
+table#tableChat td,
+table#tableChat tr {
+	border: 0px;
+}
+
+.invisible {
+	display: none;
 	color: blue;
 }
-#hideChat{
-	position:fixed;
-	bottom:0;
+
+#hideChat {
+	position: fixed;
+	bottom: 0;
 	right: 17px;
-	height:25px;
-	width:398px;
-	border-width: 2px; 
-	border-style:double; 
-	border-color:black; 
-	
+	height: 25px;
+	width: 398px;
+	border-width: 2px;
+	border-style: double;
+	border-color: black;
+	z-index: 35;
+
 }
 
-span{
+span {
 	display: table;
 }
-p{
-	
-}
-#mainDiv{
-	position:absolute;
-	bottom: 0; 
+
+p {}
+
+#mainDiv {
+	position: absolute;
+	bottom: 0;
 	right: 0;
-	width:400px;
-	height:550px;
+	width: 400px;
+	height: 550px;
 }
-table{
-	border-radius:0;
-	position:fixed;
-	bottom: 0; 
+
+table#tableChat {
+	border-radius: 0;
+	position: fixed;
+	bottom: 0;
 	right: 20px;
-	width:400px;
-	height:500px;
-	border-width: 3px; 
-	border-style:solid; 
-	border-color:black; 
-	background-image:url('../img/background.jpg');
+	width: 400px;
+	height: 500px;
+	border-width: 3px;
+	border-style: solid;
+	border-color: black;
+	background-image: url('../img/background.jpg');
 	transition-duration: 0.9s;
+	z-index: 33;
 }
-table.hide{
-	bottom:-520px;
+
+table#tableChat.hide {
+	bottom: -520px;
 }
-tr.tableHeader{
-	height:12px;
+
+tr.tableHeader {
+	height: 12px;
 }
-#indicator{
-	height:12px;
+
+#indicator {
+	height: 12px;
 }
-tr.input{
-	height:150px;
-	padding:0px;
+
+tr.input {
+	height: 150px;
+	padding: 0px;
 }
-td.input{
-	padding:0px;
+
+td.input {
+	padding: 0px;
 }
-td.input input{
+
+td.input input {
 	margin: 3px 0;
-	height:55px;
-	width:398px;
-	padding-left:12px;
-	padding-right:12px;
-	border-width: 2px; 
-	border-style:double; 
-	border-color:black; 
+	height: 55px;
+	width: 398px;
+	padding-left: 12px;
+	padding-right: 12px;
+	border-width: 2px;
+	border-style: double;
+	border-color: black;
 }
-td.input input.text{
 
-	background-color:#DEB887;
-	width:370px;
+td.input input.text {
+
+	background-color: #DEB887;
+	width: 370px;
 
 }
-.divChat{
-	margin:3px;
-	padding:12px;
-	height:300px; 
+
+.divChat {
+	margin: 3px;
+	padding: 12px;
+	height: 300px;
 	text-align: center;
 	overflow-x: auto;
-	
+
 }
 
-.cl{
-	float:right;
+.cl {
+	float: right;
 	clear: both;
-	text-align:right;
-	color:green;
-	padding:12px;
-	background-color:white;
-	border-radius:12px;
-	margin-top:23px;
+	text-align: right;
+	color: green;
+	padding: 12px;
+	background-color: white;
+	border-radius: 12px;
+	margin-top: 23px;
 }
-.adm{
-	float:left;
-	clear:both;
-	margin-top:23px;
-	text-align:left;
-	color:red;
-	padding:12px;
-	width:auto;
-	background-color:white;
-	border-radius:12px;
+
+.adm {
+	float: left;
+	clear: both;
+	margin-top: 23px;
+	text-align: left;
+	color: red;
+	padding: 12px;
+	width: auto;
+	background-color: white;
+	border-radius: 12px;
 }
-h4.adm{
-width:90%;
+
+h4.adm {
+	width: 90%;
 }
 
 
 ::-webkit-scrollbar-button {
-background-image:url('');
-background-repeat:no-repeat;
-width:5px;
-height:0px
+	background-image: url('');
+	background-repeat: no-repeat;
+	width: 5px;
+	height: 0px
 }
 
 ::-webkit-scrollbar-track {
-background-color:#ecedee
+	background-color: #ecedee
 }
 
 ::-webkit-scrollbar-thumb {
--webkit-border-radius: 0px;
-border-radius: 0px;
-background-color:#6dc0c8;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	background-color: #6dc0c8;
 }
 
-::-webkit-scrollbar-thumb:hover{
-background-color:#56999f;
+::-webkit-scrollbar-thumb:hover {
+	background-color: #56999f;
 }
 
-::-webkit-resizer{
-background-image:url('');
-background-repeat:no-repeat;
-width:4px;
-height:0px
+::-webkit-resizer {
+	background-image: url('');
+	background-repeat: no-repeat;
+	width: 4px;
+	height: 0px
 }
 
-::-webkit-scrollbar{
-width: 4px;
+::-webkit-scrollbar {
+	width: 4px;
 }
 
-.chatNotice{
-	padding:7px;
-	width:245px;
-	height:33px;
-	background:rgb(229, 255, 229);
-	margin:7px;
+.chatNotice {
+	padding: 7px;
+	width: 245px;
+	height: 33px;
+	background: rgb(229, 255, 229);
+	margin: 7px;
 	border: solid rgb(15, 15, 6) 1px;
 	display: inline-block;
 	transition-duration: 0.5s;
 }
 
-.chatNotice:hover{
+.chatNotice:hover {
 	margin-top: 5px;
 	display: inline-block;
-	box-shadow: -12px 1px 27px -8px rgba(0,0,0,0.51);
-	-webkit-box-shadow: -12px 1px 27px -8px rgba(0,0,0,0.51);
-	-moz-box-shadow: -12px 1px 27px -8px rgba(0,0,0,0.51);
+	box-shadow: -12px 1px 27px -8px rgba(0, 0, 0, 0.51);
+	-webkit-box-shadow: -12px 1px 27px -8px rgba(0, 0, 0, 0.51);
+	-moz-box-shadow: -12px 1px 27px -8px rgba(0, 0, 0, 0.51);
 }
 
-.userDialog{
-	width:100%;
+.userDialog {
+	width: 100%;
 	height: 400px;
-	background-color:wheat;
+	background-color: wheat;
 	overflow-x: auto;
+	padding:12px;
+	box-sizing: border-box;
 }
-#dialog{
+
+#dialog {
 	text-align: center;
 }
+
 #dialog input {
-    width: 90%;
+	width: 90%;
 }
 
 @keyframes glowing {
-	0% { background-color: #d8cab9; box-shadow: 0 0 2px #f3dbdb; }
-	50% { background-color: #d88c29; box-shadow: 0 0 9px #DEB887; }
-	100% { background-color: #DEB887; box-shadow: 0 0 2px #794b10; }
-  }
-  
-  #hideChat {
-	animation: glowing 1500ms infinite;
-  }
-  
-  #dialogForm{
-	  margin:0 auto;
-	  width:90%;
-	  border: 3px solid green;
-  }
+	0% {
+		background-color: #d8cab9;
+		box-shadow: 0 0 2px #f3dbdb;
+	}
 
-  #dialogForm input{
-	  width:100%;
-	  height:50px;
-	  box-sizing: border-box;
-  }
+	50% {
+		background-color: #d88c29;
+		box-shadow: 0 0 9px #DEB887;
+	}
+
+	100% {
+		background-color: #DEB887;
+		box-shadow: 0 0 2px #794b10;
+	}
+}
+
+#hideChat {
+	animation: glowing 1500ms infinite;
+}
+
+#dialogForm {
+	margin: 0 auto;
+	width: 90%;
+	border: 3px solid green;
+}
+
+#dialogForm input {
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+}
+
+@media (max-width: 650px) {
+	table#tableChat {
+		width: 100%;
+		height: 100%;
+		max-height: 500px;
+		right: 0px;
+		box-sizing: border-box;
+
+	}
+
+	td.input input.text,
+	td.input input {
+		width:100%;
+		box-sizing: border-box;
+	}
+
+	#hideChat{
+		right:0;
+		width:100%;
+	}
+}

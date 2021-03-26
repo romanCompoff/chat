@@ -1,7 +1,9 @@
 const tableChat = document.querySelector("#tableChat"),
     chatForm = tableChat.querySelector("#sendMessageForm"),
     divChat=document.querySelector("#divChat");
-let tryCount = 0;
+let tryCount = 0,
+    timerId1,
+    timerId2;
 function getChannels() {
     let request = new asyncRequest()
     request.open("POST", "/chat/api/getConnectToChannel.php", false);
@@ -22,9 +24,16 @@ function getChannels() {
                         checkData(data.message, "cl");
                         checkData(data.admin, "adm", true);
                         checkData(data.err, "err");
-                        console.log(data);
+                         
                     });
-                    let timerId3 = setTimeout(()=>channels = undefined, 20000);
+                    let timerId3;
+                    if(timerId3){clearTimeout(timerId3)};
+                        timerId3 = setTimeout(()=>{
+                        channels = undefined;
+                        pusher.channels.channels["my-channel"] = false;
+                        pusher = false;
+                    }, 20000);
+                        
                 } else {
                     tableChat.querySelector("#divChat").innerHTML += `<p class = "ad">Нет ответа, или все линии заняты1</p>`;
                     console.log("2");
@@ -72,7 +81,7 @@ function sendMessage(event = null) {
        console.log(channels);
        getChannels();
        if(tryCount<10){
-        setTimeout(sendMessage, 400);
+        setTimeout(sendMessage, 500);
         tryCount++;
        }else{
         checkData("Нет свободных каналов связи", "err");
@@ -81,8 +90,8 @@ function sendMessage(event = null) {
     } else {
        senderJS(message);
        chatForm.querySelector("[type = text]").value = "";
-       clearTimeout(timerId1);
-       clearTimeout(timerId2);
+       if(timerId1){clearTimeout(timerId1)};
+       if(timerId2){clearTimeout(timerId2)};
        tryCount = 0;
     }
  }
@@ -90,7 +99,12 @@ function sendMessage(event = null) {
     event.preventDefault();
     tableChat.classList.toggle("hide");
  });
-
- let timerId1 = setTimeout(checkData, 5000, "Здравствуйте", "adm", true);
- let timerId2 = setTimeout(checkData, 7000, "Могу чем-то вам помочь?", "adm", true);
- 
+if(screen.width > 800){
+    if(!document.cookie.match("show=true")){
+        timerId1 = setTimeout(checkData, 22000, "Здравствуйте", "adm", true);
+        timerId2 = setTimeout(()=>{
+            checkData("Могу чем-то вам помочь?", "adm", true);
+            document.cookie = "show=true";
+        }, 27000 );
+    }
+}

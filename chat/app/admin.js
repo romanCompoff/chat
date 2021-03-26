@@ -4,7 +4,6 @@
  var channel = {};
  const previewChats = document.querySelector("#previewChats");
  const dialogChats = document.querySelector("#dialog");
- let userId;
   
  function getChannelsAdmin() {
      let request = new asyncRequest()
@@ -26,7 +25,7 @@
                          channel[i].bind('my-event', function (data) {
                              clickAudio();
                              let coockieData = data.coockieData.split("|=|");
-                                 userId = coockieData[0];
+                                 let userId = coockieData[0];
                              if (!previewChats.querySelector("#prev" + userId)) {
                                  let chatNotice = document.createElement("div");
                                  chatNotice.setAttribute("id", "prev" + userId);
@@ -43,8 +42,14 @@
                                  chatWindows[userId] = userDialog;
                                  // document.appendChild(userDialog);
                              }
-                             chatWindows[userId].append(data.message);
-                             chatWindows[userId].append(data.admin);
+                             if(data.admin){
+                                createMessage(data.admin, "adm", userId);
+                             }
+
+                             if(data.message){
+                                 createMessage(data.message, "cl", userId);
+                             }
+                                                    
                              dialogs[userId] = data.channel;
                              console.log(data);
                              console.log("fdas");
@@ -68,12 +73,14 @@
  }
  previewChats.addEventListener("click", (e) => {
      if (e.target && e.target.classList.contains("chatNotice")) {
-        //  let userId = e.target.dataset.user;
+         let userId = e.target.dataset.user;
 
          if (document.querySelector(`#dialog${userId}`)) {
              return false
          }
-
+         if(dialogChats.querySelector("#dialogForm")){
+            dialogChats.querySelector("#dialogForm").remove();
+         }
          let textArea = document.createElement("input"),
              button = document.createElement("input"),
              dialogForm = document.createElement("form");
@@ -94,7 +101,7 @@
              if (!channel || typeof (channel) != "object") {
                  return false;
              }
-             senderJS(message, channel);
+             senderJS(message, channel, userId);
              document.querySelector("#textMessage").value = "";
              eventT = channel;
              console.log(userId);
@@ -102,7 +109,7 @@
      }
  });
 
- function senderJS(message, channels) {
+ function senderJS(message, channels, userId) {
      let params = `admin=${message}&channels=${JSON.stringify(channels)}&coockieData=${userId}`;
      let request = new asyncRequest()
      request.open("POST", "/chat/api/sender.php", true);
@@ -124,4 +131,13 @@
      request.send(params);
  };
 
+ function createMessage(message, userClass, userId){
+    let client =  document.createElement("p");
+    client.setAttribute("class", userClass);
+    client.append(message);
+    chatWindows[userId].append(client);      
+    if(dialogChats.querySelector(".userDialog")){
+        dialogChats.querySelector(".userDialog").scrollTop = dialogChats.querySelector(".userDialog").scrollHeight; 
+    }
+ }
  getChannelsAdmin();
