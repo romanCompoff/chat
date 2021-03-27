@@ -13,5 +13,7 @@
 
 
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<script src="http://yastatic.net/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
 <script src="chat/app/main.js"></script>
 <script src="chat/app/user.js"></script>

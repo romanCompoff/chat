@@ -32,7 +32,8 @@
                                  chatNotice.setAttribute("class", "chatNotice");
                                  chatNotice.setAttribute("data-user", userId);
                                  let date = new Date(+userId * 1000);
-                                 chatNotice.append( `Клиент ${date.getUTCFullYear()}-${date.getDate()}-${date.getMonth()} | ${date.getHours()} : ${date.getMinutes()}`  ) ;
+                                 chatNotice.append( `Клиент ${date.getFullYear()}-${date.getDate()}-${date.getMonth()} | ${date.getHours()}:${date.getMinutes()}`);
+                                 chatNotice.append(`\r\n${data.channel.city}`);
                                  previewChats.appendChild(chatNotice);
                              }
                              if (!chatWindows[userId]) {

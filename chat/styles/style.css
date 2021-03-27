@@ -176,6 +176,8 @@ h4.adm {
 	border: solid rgb(15, 15, 6) 1px;
 	display: inline-block;
 	transition-duration: 0.5s;
+	text-align: center;
+	cursor: pointer;
 }
 
 .chatNotice:hover {

@@ -16,6 +16,7 @@ function getChannels() {
 
                 if (this.responseText != null) {
                     channels = JSON.parse(this.responseText);
+                    channels.city = ymaps.geolocation.city;
                     pusher = new Pusher(channels.app_key, {
                         cluster: channels.cluster
                     });
@@ -32,7 +33,7 @@ function getChannels() {
                         channels = undefined;
                         pusher.channels.channels["my-channel"] = false;
                         pusher = false;
-                    }, 20000);
+                    }, 200000);
                         
                 } else {
                     tableChat.querySelector("#divChat").innerHTML += `<p class = "ad">Нет ответа, или все линии заняты1</p>`;
@@ -99,12 +100,13 @@ function sendMessage(event = null) {
     event.preventDefault();
     tableChat.classList.toggle("hide");
  });
-if(screen.width > 800){
+// if(screen.width > 800){
     if(!document.cookie.match("show=true")){
         timerId1 = setTimeout(checkData, 22000, "Здравствуйте", "adm", true);
         timerId2 = setTimeout(()=>{
             checkData("Могу чем-то вам помочь?", "adm", true);
             document.cookie = "show=true";
+            setTimeout(() =>tableChat.classList.add("hide"), 2000); 
         }, 27000 );
     }
-}
+// }

@@ -35,6 +35,7 @@ require __DIR__ . '/../vendor/autoload.php';
 		<tbody>
 	</table>
 	<input type="submit"  value="Спрятать/показать" id = "hideChat"> -->
+
     </body>
 </html>
 
