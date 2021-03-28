@@ -1,5 +1,6 @@
  const dialogs = {};
  const chatWindows = {};
+ const userParams = {};
  var pusher = {};
  var channel = {};
  const previewChats = document.querySelector("#previewChats");
@@ -33,7 +34,9 @@
                                  chatNotice.setAttribute("data-user", userId);
                                  let date = new Date(+userId * 1000);
                                  chatNotice.append( `Клиент ${date.getFullYear()}-${date.getDate()}-${date.getMonth()} | ${date.getHours()}:${date.getMinutes()}`);
-                                 chatNotice.append(`\r\n${data.channel.city}`);
+                                 chatNotice.innerHTML += "<br>";
+                                 chatNotice.append(`Город: ${data.channel.city}`);
+                                 chatNotice.innerHTML += `<br>Писал ранее: ${coockieData.length} раз.`;
                                  previewChats.appendChild(chatNotice);
                              }
                              if (!chatWindows[userId]) {
@@ -113,7 +116,7 @@
  function senderJS(message, channels, userId) {
      let params = `admin=${message}&channels=${JSON.stringify(channels)}&coockieData=${userId}`;
      let request = new asyncRequest()
-     request.open("POST", "/chat/api/sender.php", true);
+     request.open("POST", "/chat/api/sender.php", false);
      request.setRequestHeader("Content-type",
          "application/x-www-form-urlencoded")
 

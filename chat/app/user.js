@@ -6,7 +6,7 @@ let tryCount = 0,
     timerId2;
 function getChannels() {
     let request = new asyncRequest()
-    request.open("POST", "/chat/api/getConnectToChannel.php", false);
+    request.open("POST", "/chat/api/getConnectToChannel.php", true);
     request.setRequestHeader("Content-type",
         "application/x-www-form-urlencoded");
     request.onreadystatechange = function () {
@@ -82,7 +82,7 @@ function sendMessage(event = null) {
        console.log(channels);
        getChannels();
        if(tryCount<10){
-        setTimeout(sendMessage, 500);
+        setTimeout(sendMessage, 700);
         tryCount++;
        }else{
         checkData("Нет свободных каналов связи", "err");
