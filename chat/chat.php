@@ -2,6 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+
 ?>
 	<table class = "hide" id = "tableChat">
 		<tbody>

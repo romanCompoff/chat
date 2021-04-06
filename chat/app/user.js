@@ -1,7 +1,10 @@
 const tableChat = document.querySelector("#tableChat"),
     chatForm = tableChat.querySelector("#sendMessageForm"),
-    divChat = document.querySelector("#divChat");
+    divChat = document.querySelector("#divChat"),
+    timerIds = {},
+    midleData = {};
 let tryCount = 0,
+    adminTimeout,
     timerId1,
     timerId2;
 
@@ -33,6 +36,11 @@ function getChannels() {
                         checkData(data.err, "err");
 
                     });
+                    channel.bind('writeShower', function (data) {
+                        if (data.admin) {
+                            adminWriteShower();
+                        }
+                    });
 
                     let timerId3;
                     if (timerId3) {
@@ -43,7 +51,7 @@ function getChannels() {
                         pusher.channels.channels["my-channel"] = false;
                         pusher = false;
                     }, 200000);
-                    // setTimeout(sendMessage, 100) ;
+
 
                 } else {
                     tableChat.querySelector("#divChat").innerHTML += `<p class = "ad">Нет ответа, или все линии заняты1</p>`;
@@ -70,13 +78,38 @@ function senderJS(message) {
         if (this.readyState == 4) {
             if (this.status == 200) {
 
-                if (this.responseText != null) {}
+                if (this.responseText != null) {
+                    console.log(this.responseText);
+                }
             }
         }
     }
 
     request.send(params);
 }
+
+function writeShower(message = "") {
+    let params = `client=${message}&channels=${JSON.stringify(channels)}`;
+    let request = new asyncRequest()
+    request.open("POST", "/chat/api/writeShower.php", true);
+    request.setRequestHeader("Content-type",
+        "application/x-www-form-urlencoded")
+
+    request.onreadystatechange = function () {
+
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+
+                if (this.responseText != null) {
+                    console.log(this.responseText);
+                }
+            }
+        }
+    }
+
+    request.send(params);
+}
+
 chatForm.addEventListener("submit", sendMessage);
 
 function sendMessage(event = null, checkEvent = true) {
@@ -116,3 +149,22 @@ if (!document.cookie.match("show=true")) {
         setTimeout(() => tableChat.classList.add("hide"), 2000);
     }, 26000);
 }
+
+function adminWriteShower() {
+    clearTimeout(timerIds['adminTimeout']);
+    tableChat.querySelector("#indicator").innerHTML = "Пишет &#9997; &#9997; &#9997; &#9997; &#9997;";
+    timerIds['adminTimeout'] = setTimeout(() => tableChat.querySelector("#indicator").innerHTML = "", 3000);
+}
+
+function midleAdminShover() {
+    if (channels == undefined) { return }
+    let message = tableChat.querySelector("#message").value;
+    if (!midleData['midleAdminShover']) {
+        midleData['midleAdminShover'] = true
+        setTimeout(() => midleData['midleAdminShover'] = false, 3000);
+        writeShower(message);
+    }
+}
+
+
+tableChat.querySelector("#message").addEventListener("input", midleAdminShover);

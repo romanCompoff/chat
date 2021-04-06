@@ -42,6 +42,7 @@ class ComposerStaticInit04dc3f9101b3ad0122fbb037cf34e38d
         'Dva\\Chat\\Controllers\\InstalController' => __DIR__ . '/../..' . '/Chat/app/Controllers/InstalController.php',
         'Dva\\Chat\\Controllers\\mainController' => __DIR__ . '/../..' . '/Chat/app/Controllers/MainController.php',
         'Dva\\Chat\\Core\\DB' => __DIR__ . '/../..' . '/Chat/app/Core/DB.php',
+        'Dva\\Chat\\Core\\PusherSingleton' => __DIR__ . '/../..' . '/Chat/app/Core/PusherSingleton.php',
         'Dva\\Chat\\Models\\AdminModel' => __DIR__ . '/../..' . '/Chat/app/Models/AdminModel.php',
         'Dva\\Chat\\Models\\InstalModel' => __DIR__ . '/../..' . '/Chat/app/Models/InstalModel.php',
         'Dva\\Chat\\Models\\mainModel' => __DIR__ . '/../..' . '/Chat/app/Models/MainModel.php',

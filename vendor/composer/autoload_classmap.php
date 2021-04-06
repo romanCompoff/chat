@@ -10,6 +10,7 @@ return array(
     'Dva\\Chat\\Controllers\\InstalController' => $baseDir . '/Chat/app/Controllers/InstalController.php',
     'Dva\\Chat\\Controllers\\mainController' => $baseDir . '/Chat/app/Controllers/MainController.php',
     'Dva\\Chat\\Core\\DB' => $baseDir . '/Chat/app/Core/DB.php',
+    'Dva\\Chat\\Core\\PusherSingleton' => $baseDir . '/Chat/app/Core/PusherSingleton.php',
     'Dva\\Chat\\Models\\AdminModel' => $baseDir . '/Chat/app/Models/AdminModel.php',
     'Dva\\Chat\\Models\\InstalModel' => $baseDir . '/Chat/app/Models/InstalModel.php',
     'Dva\\Chat\\Models\\mainModel' => $baseDir . '/Chat/app/Models/MainModel.php',

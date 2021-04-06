@@ -22,7 +22,7 @@ class DB
 			\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
         	\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
         ];
-		return new \PDO($dsn, 'root', '', $opt);
+		return new \PDO($dsn, 'root', 'root', $opt);
 	}
 
 }

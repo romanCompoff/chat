@@ -20,7 +20,7 @@ table#tableChat tr {
 #hideChat {
 	position: fixed;
 	bottom: 0;
-	right: 17px;
+	right: 19px;
 	height: 25px;
 	width: 398px;
 	border-width: 2px;
@@ -57,6 +57,7 @@ table#tableChat {
 	background-image: url('../img/background.jpg');
 	transition-duration: 0.9s;
 	z-index: 33;
+	min-width: 200px;
 }
 
 table#tableChat.hide {
@@ -68,7 +69,8 @@ tr.tableHeader {
 }
 
 #indicator {
-	height: 12px;
+	height: 25px;
+	color: rgb(66 165 162);
 }
 
 tr.input {
@@ -92,9 +94,9 @@ td.input input {
 }
 
 td.input input.text {
-
-	background-color: #DEB887;
-	width: 370px;
+    background-color: rgb(53 72 93);
+    width: 370px;
+    color: white;
 
 }
 
@@ -205,19 +207,18 @@ h4.adm {
 }
 
 @keyframes glowing {
-	0% {
-		background-color: #d8cab9;
-		box-shadow: 0 0 2px #f3dbdb;
+	0%{
+		background-color: rgb(53 120 153);
+		/* box-shadow: rgb(5 5 5) 0px 0px 2px; */
 	}
-
 	50% {
-		background-color: #d88c29;
-		box-shadow: 0 0 9px #DEB887;
+		background-color: rgb(60 139 154);
+		color: white;
+		/* box-shadow: rgb(20 19 19) 0px 0px 9px; */
 	}
-
 	100% {
-		background-color: #DEB887;
-		box-shadow: 0 0 2px #794b10;
+		background-color: rgb(53 120 128);
+		/* box-shadow: rgb(2 2 4) 0px 0px 2px; */
 	}
 }
 

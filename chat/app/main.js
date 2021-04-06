@@ -34,7 +34,6 @@ function checkData(data, classes, notice=false){
       return true;
    }
    return false;
-   
 }
 
 function clickAudio(){
