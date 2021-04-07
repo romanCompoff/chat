@@ -23,6 +23,7 @@
                              cluster: item.cluster
                          });
                          channel[i] = pusher[i].subscribe('my-channel');
+
                          channel[i].bind('my-event', function (data) {
                              clickAudio();
                              let coockieData = data.coockieData.split("|=|");
@@ -58,7 +59,15 @@
                              console.log(data);
                              console.log("fdas");
                          })
-                     });
+                         channel[i].bind('writeShower', function (data) {
+                            if (data.client) {
+                                let coockieData = data.coockieData.split("|=|");
+                                let userId = coockieData[0];
+                                document.querySelector(`#dialog${userId} .showField`).innerHTML = (data.client);
+                            }
+                        });
+                     }); 
+                   
 
 
                  } else {
@@ -98,6 +107,9 @@
          dialogForm.appendChild(textArea);
          dialogForm.appendChild(button);
          dialogChats.appendChild(dialogForm);
+         let showField = document.createElement("div");
+         showField.setAttribute("class", "showField");
+         document.querySelector(`#dialog${userId}`).appendChild(showField);
          dialogForm.addEventListener("submit", (event) => {
              event.preventDefault();
              let message = event.target.querySelector("#textMessage").value;
@@ -144,4 +156,37 @@
         dialogChats.querySelector(".userDialog").scrollTop = dialogChats.querySelector(".userDialog").scrollHeight; 
     }
  }
+
+ function writeShower() {
+    let params = `admin=true`;
+    let request = new asyncRequest()
+    request.open("POST", "/chat/api/writeShower.php");
+    request.setRequestHeader("Content-type",
+        "application/x-www-form-urlencoded")
+
+    request.onreadystatechange = function () {
+
+    //     if (this.readyState == 4) {
+    //         if (this.status == 200) {
+
+    //             if (this.responseText != null) {
+    //                 console.log(this.responseText);
+    //             }
+    //         }
+    //     }
+    }
+
+    request.send(params);
+}
+
+
+ function midleAdminShover() {
+    if (!midleData['midleAdminShover']) {
+        midleData['midleAdminShover'] = true
+        setTimeout(() => midleData['midleAdminShover'] = false, 3000);
+        writeShower(message);
+    }
+}
+
+ document.querySelector("#textMessage").addEventListener("input", midleAdminShover);
  getChannelsAdmin();

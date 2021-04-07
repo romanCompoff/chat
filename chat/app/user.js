@@ -1,8 +1,7 @@
 const tableChat = document.querySelector("#tableChat"),
     chatForm = tableChat.querySelector("#sendMessageForm"),
     divChat = document.querySelector("#divChat"),
-    timerIds = {},
-    midleData = {};
+    timerIds = {};
 let tryCount = 0,
     adminTimeout,
     timerId1,
@@ -39,7 +38,9 @@ function getChannels() {
                     channel.bind('writeShower', function (data) {
                         if (data.admin) {
                             adminWriteShower();
+                            
                         }
+                        console.log(data);
                     });
 
                     let timerId3;

@@ -7,6 +7,7 @@
 var channels;
 var pusher;
 var channel;
+const midleData = {};
 
 function asyncRequest() {
    try {
